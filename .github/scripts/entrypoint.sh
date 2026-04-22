@@ -1,14 +1,9 @@
 #!/bin/bash
 
-FREQ_RESULT=$1
-GITHUB_USE=$2
-TIMESTAMP=$(date)
+echo "Starting Frequency Analyzer..."
 
-echo -e "\n[$GITHUB_USER - $FREQ_RESULT - $TIMESTAMP]" >> README.md
+FREQ_RESULT=$(python3 /app/.github/scripts/frequency.py /app/data.txt)
 
-git config --global user.name "github-actions"
-git config --global user.email "github-actions@users.noreply.github.com"
+bash /app/.github/scripts/update_readme.sh "$FREQ_RESULT" "$GITHUB_USER"
 
-git add README.md
-git commit -m "Update README with vowel frequency results"
-git push
+echo "Process Completed!"
