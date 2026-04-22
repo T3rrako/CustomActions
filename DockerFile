@@ -14,4 +14,4 @@ COPY . .
 RUN chmod +x .github/scripts/entrypoint.sh
 
 # Set the entrypoint to the entrypoint script
-ENTRYPOINT [".github/scripts/entrypoint.sh"]
+ENTRYPOINT ["/.github/scripts/entrypoint.sh"]
